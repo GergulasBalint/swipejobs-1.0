@@ -1,0 +1,20 @@
+.welcome-background {
+    height: 100vh;
+    background-image: url("../../../../assets/main_hatter.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 5rem;
+  }
+  
+  .btn {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+  }
+  
