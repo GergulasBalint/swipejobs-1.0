@@ -10,7 +10,8 @@ import { FooterComponent } from './_components/welcome_page/footer/footer.compon
 import { MainRegisterComponent } from './_components/register/main-register/main-register.component';
 import { MainLoginComponent } from './_components/login/main-login/main-login.component';
 import { WelcomePageLayoutComponent } from './_layouts/_components/welcome-page-layout/welcome-page-layout.component';
-
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,9 @@ import { WelcomePageLayoutComponent } from './_layouts/_components/welcome-page-
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
