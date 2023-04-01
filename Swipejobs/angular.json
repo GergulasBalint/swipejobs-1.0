@@ -58,14 +58,16 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options":{
+            "browserTarget": "generatedatatool:build",
+            "proxyConfig":"src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "Swipejobs:build:production",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "Swipejobs:build:production"
             },
             "development": {
-              "browserTarget": "Swipejobs:build:development",
-              "proxyConfig": "src/proxy.conf.json"
+              "browserTarget": "Swipejobs:build:development"
             }
           },
           "defaultConfiguration": "development"

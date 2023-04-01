@@ -36,13 +36,14 @@
                 </div>
                 <div class="d-flex justify-content-center">
                   <h6 class="mb-2 pb-1">Típus: </h6>
+
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Munkakereső" value="Munkakereső" checked />
-                    <label class="form-check-label" for="Munkakereső">Munkakereső</label>
+                    <input class="form-check-input" [(ngModel)]="workType" type="radio" name="inlineRadioOptions" id="Munkaadó" value=1 />
+                    <label class="form-check-label" for="Munkaadó">Munkaadó</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Munkaadó" value="Munkaadó" />
-                    <label class="form-check-label" for="Munkaadó">Munkaadó</label>
+                    <input class="form-check-input" [(ngModel)]="workType" type="radio" name="inlineRadioOptions" id="Munkakereső" value=2 checked />
+                    <label class="form-check-label" for="Munkakereső">Munkakereső</label>
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
