@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterService } from 'src/app/_services/register.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-main-register',
@@ -13,12 +14,15 @@ export class MainRegisterComponent {
   email = '';
   password = '';
   workType = '';
+  registrationFailed = false;
+  registrationSuccess = false;
 
   constructor(
     private registerService: RegisterService,
     private http: HttpClient
   ) {}
-  onSubmit() {
+
+  onSubmit(form: NgForm) {
     const user = {
       first_name: this.firstName,
       last_name: this.lastName,
@@ -26,7 +30,15 @@ export class MainRegisterComponent {
       password: this.password,
       user_type: parseInt(this.workType) 
     };
-    
+
+    if (form.valid) {
+      // Register the user and set registrationSuccess to true
+      this.registrationSuccess = true;
+    } else {
+      // Set registrationFailed to true
+      this.registrationFailed = true;
+    }
+
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
   
     this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
@@ -38,4 +50,4 @@ export class MainRegisterComponent {
         console.error(err);
       });
   }
-}  
+}

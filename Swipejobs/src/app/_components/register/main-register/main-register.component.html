@@ -5,7 +5,18 @@
           <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
             <div class="card-body p-4 p-md-5">
               <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Regisztráció</h3>
-              <form (submit)="onSubmit()">
+              <!-- Add these two alert divs inside the card-body div -->
+<div class="alert alert-danger" *ngIf="registrationFailed" role="alert">
+  Hiba történt a regisztráció közben. Kérem nézze át az adatait, és próbálja újra.
+</div>
+<div class="alert alert-success" *ngIf="registrationSuccess" role="alert">
+  Sikeres regisztráció!
+</div>
+
+<!-- Modify the form tag to include (ngSubmit) directive -->
+<form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+
+
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">

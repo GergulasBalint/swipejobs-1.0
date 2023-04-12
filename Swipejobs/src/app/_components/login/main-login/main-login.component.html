@@ -8,23 +8,24 @@
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Bejelentkezés</h2>
               <form>
-
-
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg"
+                    [(ngModel)]="email" name="email" />
                   <label class="form-label" for="form3Example3cg">Email cím</label>
                 </div>
-
+                
                 <div class="form-outline mb-4">
-                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg"
+                    [(ngModel)]="password" name="password" />
                   <label class="form-label" for="form3Example4cg">Jelszó</label>
                 </div>
-
+                
                 <div class="d-flex justify-content-center">
                   <button type="button"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Bejelentkezés</button>
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    [disabled]="!email || !password"
+                    (click)="login()">Bejelentkezés</button>
                 </div>
-
                 <p class="text-center text-muted mt-5 mb-0">Nincs még fiókod? Regisztrálj itt <a href="#!"
                     class="fw-bold text-body" routerLink="/register"><u>Regisztráció</u></a></p>
 

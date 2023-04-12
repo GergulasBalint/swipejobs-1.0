@@ -12,6 +12,10 @@ import { MainLoginComponent } from './_components/login/main-login/main-login.co
 import { WelcomePageLayoutComponent } from './_layouts/_components/welcome-page-layout/welcome-page-layout.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoggedInNavbarComponent } from './_components/logged-in-navbar/logged-in-navbar.component';
+import { AuthGuardComponentComponent } from './_components/auth-guard-component/auth-guard-component.component';
+import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-mainpage/logged-in-mainpage.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     MainRegisterComponent,
     MainLoginComponent,
-    WelcomePageLayoutComponent
+    WelcomePageLayoutComponent,
+    LoggedInNavbarComponent,
+    AuthGuardComponentComponent,
+    LoggedInMainpageComponent
   ],
   imports: [
     BrowserModule,
