@@ -1,7 +1,11 @@
 .bg-image {
-  background-image: url('../../../../assets/main_hatter.jpg');
+  background-image: url('../../../../assets/sjhattervegleges.png');
+
+  background-repeat: no-repeat;
   background-size: cover;
-  height: 90vh;
+  background-position: center center;
+  height: calc(90vh - 20px); /* subtract 20px margin from 90vh */
+  
 }
 
 .my-card {
@@ -21,4 +25,16 @@
   margin: 10px 0;
 }
 
+button.btn-primary {
+  background-color: #F5A623;
+  border-color: #F5A623;
 
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+}
+button.btn-primary:hover,
+button.btn-primary:focus {
+  background-color: #fff;
+  border-color: #fff;
+  color: #F5A623;
+}

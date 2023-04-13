@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainBackgroundComponent } from './_components/welcome_page/main-background/main-background.component';
@@ -12,9 +12,13 @@ import { MainLoginComponent } from './_components/login/main-login/main-login.co
 import { WelcomePageLayoutComponent } from './_layouts/_components/welcome-page-layout/welcome-page-layout.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { LoggedInNavbarComponent } from './_components/logged-in-navbar/logged-in-navbar.component';
+import { LoggedInNavbarComponent } from './_components/_dashboard/logged-in-navbar/logged-in-navbar.component';
 import { AuthGuardComponentComponent } from './_components/auth-guard-component/auth-guard-component.component';
-import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-mainpage/logged-in-mainpage.component';
+import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-mainpage-layout/logged-in-mainpage.component';
+import { MainComponent } from './_components/_dashboard/main/main.component';
+import { ProfileLayoutComponent } from './_layouts/_components/profile-layout/profile-layout.component';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,13 +32,18 @@ import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-main
     WelcomePageLayoutComponent,
     LoggedInNavbarComponent,
     AuthGuardComponentComponent,
-    LoggedInMainpageComponent
+    LoggedInMainpageComponent,
+    MainComponent,
+    ProfileLayoutComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

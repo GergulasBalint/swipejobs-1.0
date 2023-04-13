@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterService } from 'src/app/_services/register.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-main-login',
@@ -11,8 +13,11 @@ import { NgForm } from '@angular/forms';
 export class MainLoginComponent {
   email = '';
   password= '';
-  constructor(private http: HttpClient) { }
-
+  showPassword = false;
+  constructor(private http: HttpClient,private router: Router) { }
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   login() {
     const body = {
       email: this.email,
@@ -23,7 +28,8 @@ export class MainLoginComponent {
     this.http.post('http://localhost:8080/login', body).subscribe((response: any) => {
       console.log(response);
       console.log("Sikeres a login");
-      localStorage.setItem('token', response.token); // Store token in localStorage
+      localStorage.setItem('token', response.token);
+      this.router.navigate(['/dashboard']); // Store token in localStorage
     }, (error) => {
       console.log(error);
       console.log("nem sikeres a login :(")

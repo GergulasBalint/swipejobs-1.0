@@ -13,8 +13,13 @@ export class AuthGuardComponentComponent {
   
     ngOnInit() {
       // Replace this with authentication logic
-      const isLoggedIn = true;
-  
+      var isLoggedIn = false;
+      const token = localStorage.getItem('token');
+      if (token!=null){
+          isLoggedIn=true;        
+      }else{
+        isLoggedIn=false;
+      }
       if (isLoggedIn) {
         this.router.navigate(['/dashboard']);
       } else {

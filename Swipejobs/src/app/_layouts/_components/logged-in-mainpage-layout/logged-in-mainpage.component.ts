@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-logged-in-mainpage',
   templateUrl: './logged-in-mainpage.component.html',
