@@ -1,1 +1,94 @@
-<p>profile works!</p>
+<div class="row">
+    <div class="col-md-3">
+      <img class="img-fluid rounded-circle mb-3" src="{{ profilePictureUrl }}" alt="Profile Picture">
+      <div class="mb-3">
+        <input type="file" (change)="onProfilePictureSelected($event)">
+        <button class="btn btn-primary" (click)="uploadProfilePicture()">Upload</button>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <h2>{{ firstName }} {{ lastName }}</h2>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="row">
+            <div class="col-md-4">Gender:</div>
+            <div class="col-md-8">
+              <span *ngIf="!editingGender">{{ gender }}</span>
+              <input *ngIf="editingGender" type="text" [(ngModel)]="gender" class="form-control">
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('gender')">
+                {{ editingGender ? 'Save' : 'Edit' }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="row">
+            <div class="col-md-4">Age:</div>
+            <div class="col-md-8">
+              <span *ngIf="!editingAge">{{ age }}</span>
+              <input *ngIf="editingAge" type="number" [(ngModel)]="age" class="form-control">
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('age')">
+                {{ editingAge ? 'Save' : 'Edit' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="row">
+            <div class="col-md-4">Qualification:</div>
+            <div class="col-md-8">
+              <span *ngIf="!editingQualification">{{ qualification }}</span>
+              <input *ngIf="editingQualification" type="text" [(ngModel)]="qualification" class="form-control">
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('qualification')">
+                {{ editingQualification ? 'Save' : 'Edit' }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="row">
+            <div class="col-md-4">Location:</div>
+            <div class="col-md-8">
+                <!-- <button (click)="printId()">Print ID</button> -->
+
+              <span *ngIf="!editingLocation">{{ location }}</span>
+              <input *ngIf="editingLocation" type="text" [(ngModel)]="location" class="form-control">
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('location')">
+                {{ editingLocation ? 'Save' : 'Edit' }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="row">
+            <div class="col-md-4">Skills:</div>
+            <div class="col-md-8">
+              <span *ngIf="!editingSkills">{{skills}}</span>
+              <textarea *ngIf="editingSkills" [(ngModel)]="skills" class="form-control"></textarea>
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('skills')">
+              {{ editingSkills ? 'Save' : 'Edit' }}
+              </button>
+              </div>
+              </div>
+              </div>
+              <div class="col-md-6 mb-3">
+              <div class="row">
+              <div class="col-md-4">Bio:</div>
+              <div class="col-md-8">
+              <span *ngIf="!editingBio">{{ bio }}</span>
+              <textarea *ngIf="editingBio" [(ngModel)]="bio" class="form-control"></textarea>
+              <button class="btn btn-primary btn-sm" (click)="toggleEditing('bio')">
+              {{ editingBio ? 'Save' : 'Edit' }}
+              </button>
+              </div>
+              </div>
+              </div>
+              </div>
+              
+                </div>
+              </div>  

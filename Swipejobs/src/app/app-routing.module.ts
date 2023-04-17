@@ -7,6 +7,7 @@ import { WelcomePageLayoutComponent } from './_layouts/_components/welcome-page-
 import { AuthGuardComponentComponent } from './_components/auth-guard-component/auth-guard-component.component';
 import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-mainpage-layout/logged-in-mainpage.component';
 import { ProfileLayoutComponent } from './_layouts/_components/profile-layout/profile-layout.component';
+import { Error404LayoutComponent } from './_layouts/_components/error404-layout/error404-layout.component';
 
 const routes: Routes = [
   {path:'', component:AuthGuardComponentComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomePageLayoutComponent },
   { path: 'dashboard', component: LoggedInMainpageComponent },
   { path: 'profile', component: ProfileLayoutComponent },
+  { path: 'error404', component: Error404LayoutComponent }
   
 ];
 

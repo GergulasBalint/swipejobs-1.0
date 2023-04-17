@@ -1,0 +1,28 @@
+.not-found-container {
+    background-image: url('/assets/hiba404.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: calc(90vh - 20px); /* subtract 20px margin from 90vh */
+    border-bottom: 2px solid black;
+    position: relative; /* add this to make sure child elements use this as the parent */
+  }
+  
+  .not-found-message {
+    position: absolute; /* position the message relative to the parent */
+    bottom: 0; /* align the message to the bottom of the parent */
+    font-size: 45px;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .not-found-message a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    
+    
+  text-shadow:1px 1px 2px  rgba(0, 0, 0, 0.5);
+  }
+  

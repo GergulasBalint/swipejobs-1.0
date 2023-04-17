@@ -5,7 +5,8 @@
   background-size: cover;
   background-position: center center;
   height: calc(90vh - 20px); /* subtract 20px margin from 90vh */
-  
+ border-bottom: 2px solid black;
+ margin-bottom: 20px; 
 }
 
 .my-card {

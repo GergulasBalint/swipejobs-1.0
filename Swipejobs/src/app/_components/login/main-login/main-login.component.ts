@@ -29,6 +29,7 @@ export class MainLoginComponent {
       console.log(response);
       console.log("Sikeres a login");
       localStorage.setItem('token', response.token);
+      localStorage.setItem('id', response.id);
       this.router.navigate(['/dashboard']); // Store token in localStorage
     }, (error) => {
       console.log(error);
