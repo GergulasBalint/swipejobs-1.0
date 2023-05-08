@@ -30,6 +30,7 @@ export class MainLoginComponent {
       console.log("Sikeres a login");
       localStorage.removeItem('token');
       localStorage.removeItem('id');
+      localStorage.removeItem('user_type');
       localStorage.setItem('token', response.token);
       localStorage.setItem('id', response.id);
       localStorage.setItem('user_type', response.user_type);

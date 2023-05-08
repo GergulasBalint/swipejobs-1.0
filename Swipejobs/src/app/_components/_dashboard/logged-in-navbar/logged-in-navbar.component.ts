@@ -12,6 +12,7 @@ export class LoggedInNavbarComponent {
     // Clear the authentication token from the local storage
     localStorage.removeItem('token');
     localStorage.removeItem('id');
+    localStorage.removeItem('user_type');
     // Redirect the user to the sign-in page
     window.location.href = '/login';
   }

@@ -50,8 +50,7 @@ export class MainRegisterComponent {
     this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
       .toPromise()
       .then(res => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('id');
+        localStorage.setItem('user_type',this.workType);
         console.log(res);
         window.location.href = '/dashboard';
       })
