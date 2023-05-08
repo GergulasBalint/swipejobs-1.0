@@ -21,6 +21,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Error404Component } from './_components/error404/error404.component';
 import { Error404LayoutComponent } from './_layouts/_components/error404-layout/error404-layout.component';
+import { ClientMainComponent } from './_components/_dashboard/client-main/client-main.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { Error404LayoutComponent } from './_layouts/_components/error404-layout/
     ProfileLayoutComponent,
     ProfileComponent,
     Error404Component,
-    Error404LayoutComponent
+    Error404LayoutComponent,
+    ClientMainComponent
   ],
   imports: [
     BrowserModule,

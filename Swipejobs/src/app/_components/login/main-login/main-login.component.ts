@@ -28,8 +28,11 @@ export class MainLoginComponent {
     this.http.post('http://localhost:8080/login', body).subscribe((response: any) => {
       console.log(response);
       console.log("Sikeres a login");
+      localStorage.removeItem('token');
+      localStorage.removeItem('id');
       localStorage.setItem('token', response.token);
       localStorage.setItem('id', response.id);
+      localStorage.setItem('user_type', response.user_type);
       this.router.navigate(['/dashboard']); // Store token in localStorage
     }, (error) => {
       console.log(error);

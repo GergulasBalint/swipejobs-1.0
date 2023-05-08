@@ -1,4 +1,16 @@
-<app-logged-in-navbar></app-logged-in-navbar>
-<app-dashboardmain></app-dashboardmain>
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+<ng-container *ngIf="userType === 1; else jobSeekerLayout">
+    <!-- show this layout if user_type is 1 -->
+    <app-logged-in-navbar></app-logged-in-navbar>
+    <app-client-main></app-client-main>
+    <app-footer></app-footer>
+  </ng-container>
+  
+  <ng-template #jobSeekerLayout>
+    <!-- show this layout if user_type is not 1 -->
+    <app-logged-in-navbar></app-logged-in-navbar>
+    <app-dashboardmain></app-dashboardmain>
+    <app-footer></app-footer>
+  </ng-template>
+  
+  <router-outlet></router-outlet>
+  

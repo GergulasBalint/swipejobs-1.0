@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { RegisterService } from 'src/app/_services/register.service';
 import { NgForm } from '@angular/forms';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-main-register',
@@ -49,6 +50,8 @@ export class MainRegisterComponent {
     this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
       .toPromise()
       .then(res => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
         console.log(res);
         window.location.href = '/dashboard';
       })
