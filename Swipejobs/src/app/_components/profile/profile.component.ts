@@ -1,4 +1,4 @@
-  import { HttpClient } from '@angular/common/http';
+  import { HttpClient, HttpHeaders } from '@angular/common/http';
   import { Component } from '@angular/core';
 
   @Component({
@@ -7,6 +7,7 @@
     styleUrls: ['./profile.component.css']
   })
   export class ProfileComponent {
+    user: any;
     userId=localStorage.getItem('id');
     firstName = 'John';
     lastName = 'Doe';
@@ -25,6 +26,17 @@
     profilePictureUrl = 'https://via.placeholder.com/150';
     constructor(private http: HttpClient) {}
     ngOnInit() {
+      {
+    const id = localStorage.getItem('id');
+    const headers = new HttpHeaders({'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')});
+  
+    this.http.get(`http://localhost:8080/users/${id}`, {headers})
+      .subscribe((response: any) => {
+        this.user = response;
+      });
+    }
+  
+      console.log(this.userId);
       this.http.get<any>(`http://localhost:8080/users/${this.userId}`).subscribe(response => {
         this.firstName = response.first_name;
         this.lastName = response.last_name;

@@ -22,6 +22,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Error404Component } from './_components/error404/error404.component';
 import { Error404LayoutComponent } from './_layouts/_components/error404-layout/error404-layout.component';
 import { ClientMainComponent } from './_components/_dashboard/client-main/client-main.component';
+import { ClientJobuploadComponent } from './_components/_dashboard/client-jobupload/client-jobupload.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ClientMainComponent } from './_components/_dashboard/client-main/client
     ProfileComponent,
     Error404Component,
     Error404LayoutComponent,
-    ClientMainComponent
+    ClientMainComponent,
+    ClientJobuploadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,9 @@
 .bg{
-  background-color: #ffc100;
+  background-color: #E74646;
 
     color: white;
-  text-shadow:1px 1px 2px  rgba(0, 0, 0, 0.5);
+    font-size: large;
+  text-shadow:2px 2px 4px  rgba(0, 0, 0, 0.5);
   margin-left: 5%;
   margin-right: 5%;
 }

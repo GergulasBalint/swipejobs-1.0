@@ -11,6 +11,7 @@ export class MainComponent {
 
   constructor() { }
 
+
   // ngAfterViewInit(): void {
   //   const swipeCard = this.swipeCard.nativeElement;
 

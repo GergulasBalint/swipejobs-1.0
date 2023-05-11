@@ -32,7 +32,7 @@ export class MainRegisterComponent {
       last_name: this.lastName,
       email: this.email,
       password: this.password,
-      user_type: parseInt(this.workType) 
+      user_type: parseInt(this.workType)
     };
 
     if (form.valid) {
@@ -46,16 +46,30 @@ export class MainRegisterComponent {
 
   
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-  
-    this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
-      .toPromise()
-      .then(res => {
-        localStorage.setItem('user_type',this.workType);
-        console.log(res);
-        window.location.href = '/dashboard';
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
+
+this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
+  .subscribe((response: any) => {
+    localStorage.setItem('user_type', this.workType);
+    localStorage.setItem('token', response.token);
+    localStorage.setItem('id', response.id);
+    localStorage.setItem('user_type', response.user_type);
+    console.log(response);
+    console.log(localStorage.getItem('id'));
+    
+    const body = {email: user.email, password: user.password};
+    this.http.post('http://localhost:8080/login', body).subscribe((response: any) => {
+      console.log(response);
+      console.log("Sikeres a login");
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('id', response.id);
+      localStorage.setItem('user_type', response.user_type);
+      window.location.href="/dashboard"
+    }, (error) => {
+      console.log(error);
+      console.log("nem sikeres a login :(")
+
+    });
+  })
+
+}
 }

@@ -8,6 +8,7 @@ import { AuthGuardComponentComponent } from './_components/auth-guard-component/
 import { LoggedInMainpageComponent } from './_layouts/_components/logged-in-mainpage-layout/logged-in-mainpage.component';
 import { ProfileLayoutComponent } from './_layouts/_components/profile-layout/profile-layout.component';
 import { Error404LayoutComponent } from './_layouts/_components/error404-layout/error404-layout.component';
+import { ClientJobuploadComponent } from './_components/_dashboard/client-jobupload/client-jobupload.component';
 
 const routes: Routes = [
   {path:'', component:AuthGuardComponentComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomePageLayoutComponent },
   { path: 'dashboard', component: LoggedInMainpageComponent },
   { path: 'profile', component: ProfileLayoutComponent },
-  { path: 'error404', component: Error404LayoutComponent }
+  { path: 'error404', component: Error404LayoutComponent },
+  { path: 'upload_job', component: ClientJobuploadComponent }
   
 ];
 
