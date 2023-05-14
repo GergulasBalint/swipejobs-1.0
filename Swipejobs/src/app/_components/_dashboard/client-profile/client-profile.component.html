@@ -1,0 +1,45 @@
+<div class="bg">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ firstName }} {{ lastName }}</h2>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row mb-3">
+          <div class="col-md-3">Cég neve:</div>
+          <div class="col-md-9">
+            <span *ngIf="!editingCompany">{{ company }}</span>
+            <input *ngIf="editingCompany" type="text" [(ngModel)]="company" class="form-control">
+            <button class="btn btn-primary btn-sm" (click)="toggleEditing('Company')">{{ editingCompany ? 'Mentés' : 'Szerkesztés' }}</button>
+          </div>
+        </div>
+  
+        <div class="row mb-3">
+          <div class="col-md-3">Adószám:</div>
+          <div class="col-md-9">
+            <span *ngIf="!editingTax_number">{{ tax_number }}</span>
+            <input *ngIf="editingTax_number" type="number" [(ngModel)]="tax_number" class="form-control">
+            <button class="btn btn-primary btn-sm" (click)="toggleEditing('tax_number')">{{ editingTax_number ? 'Mentés' : 'Szerkesztés' }}</button>
+          </div>
+        </div>
+  
+        <div class="row mb-3">
+          <div class="col-md-3">Cég helyszíne:</div>
+          <div class="col-md-9">
+            <span *ngIf="!editingLocation">{{ location }}</span>
+            <input *ngIf="editingLocation" type="text" [(ngModel)]="location" class="form-control">
+            <button class="btn btn-primary btn-sm" (click)="toggleEditing('location')">{{ editingLocation ? 'Mentés' : 'Szerkesztés' }}</button>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-12">
+            <button class="btn btn-primary" (click)="uploadData()">Adatok feltöltése</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

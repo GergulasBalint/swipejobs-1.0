@@ -7,6 +7,7 @@
       <img [src]="imageSrc" class="card-img-top" style="width: 300px;margin-left: 50px;" alt="Placeholder image">
       <div class="card-body">
         <input type="text" class="form-control mb-2" [(ngModel)]="title" placeholder="Munka címe">
+        <input type="text" class="form-control mb-2" [(ngModel)]="location" placeholder="Munka helye">
         <div class="btn-group mb-2">
           <button type="button" class="btn btn-primary"
                   [ngClass]="{'active': priceType === 'fixed'}"
@@ -17,13 +18,22 @@
                   (click)="onPriceTypeChanged('hourly')"
                   [disabled]="priceType === 'hourly'">Órabér</button>
         </div>
-        <div *ngIf="priceType === 'fixed'">
-          <input type="number" class="form-control mb-2" [(ngModel)]="fixedPrice" placeholder="Fixed price">
+        <input type="number" class="form-control mb-2" [(ngModel)]="costHUF" placeholder="Munka díja">
+        <div class="btn-group mb-2">
+          <button type="button" class="btn btn-primary"
+                  [ngClass]="{'active': foglalkoztatas_jellege === 'Teljes munkaidő'}"
+                  (click)="onFoglalkoztatasJellegeChanged('Teljes munkaidő')"
+                  [disabled]="foglalkoztatas_jellege === 'Teljes munkaidő'">Teljes munkaidő</button>
+          <button type="button" class="btn btn-primary"
+                  [ngClass]="{'active': foglalkoztatas_jellege === 'Részmunkaidő'}"
+                  (click)="onFoglalkoztatasJellegeChanged('Részmunkaidő')"
+                  [disabled]="foglalkoztatas_jellege === 'Részmunkaidő'">Részmunkaidő</button>
+          <button type="button" class="btn btn-primary"
+                  [ngClass]="{'active': foglalkoztatas_jellege === 'diákmunka'}"
+                  (click)="onFoglalkoztatasJellegeChanged('diákmunka')"
+                  [disabled]="foglalkoztatas_jellege === 'diákmunka'">diákmunka</button>
         </div>
-        <div *ngIf="priceType === 'hourly'">
-          <input type="number" class="form-control mb-2" [(ngModel)]="hourlyPrice" placeholder="Hourly price">
-        </div>
-        <textarea class="form-control mb-2" [(ngModel)]="description" placeholder="Job description"></textarea>
+        <textarea class="form-control mb-2" [(ngModel)]="description" placeholder="Munka leírása"></textarea>
         <button type="button" class="btn btn-primary" (click)="onSubmit()">Feltöltés!</button>
       </div>
     </div>

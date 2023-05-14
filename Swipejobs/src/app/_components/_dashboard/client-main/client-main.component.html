@@ -1,39 +1,38 @@
-<div class="bg-beige  align-items-center justify-content-center" style="height: 100vh;">
-    <div class="d-flex flex-column align-items-center justify-content-center h-100" *ngIf="!hasJob">
-        <h2>Úgy néz ki még nincs munkád feltöltve, kattints ide hogy feltölts egyet!</h2>
-        <button class="btn btn-primary" style="height: 50px;font-size: large;">
-          <a class="btn" href="/upload_job">Munkák</a>
+<div class="bg-beige align-items-center justify-content-center d-flex" style="height: 120vh;">
+  <div class="d-flex flex-column align-items-center justify-content-center h-100" *ngIf="!hasJob">
+    <h2>Úgy néz ki még nincs munkád feltöltve, kattints ide hogy feltölts egyet!</h2>
+    <button class="btn btn-primary mt-3" style="height: 50px;font-size: large;">
+      <a class="btn" href="/upload_job" >Munka feltöltése</a>
+    </button>
+  </div>
+  <div class="container" *ngIf="hasJob">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+        <h2 class="mb-4">Új munka feltöltéséhez kattints a gombra!</h2>
+        <button class="btn btn-primary mt-3" style="height: 50px;font-size: large;">
+          <a class="btn" href="/upload_job">Új munka feltöltése</a>
         </button>
-    <div class="container" *ngIf="hasJob">
-      <div class="row">
-        <div class="col-2 d-flex align-items-center justify-content-end">
-          <button class="btn btn-danger rounded-circle btn-lg">
-            <i class="bi bi-briefcase-fill"></i>
-          </button>
-        </div>
-        <div class="col-8">
-          <div class="card" id="swipeCard">
-            <img src="assets/suitcase.png" class="card-img-top">
-            <div class="card-body">
-              <h5 class="card-title"><!-- {{ title }} --> név</h5>
-              <p class="card-text"><!-- {{ workType }} --> típus</p>
-              <p class="card-text"><!-- {{ description }} --> leírás Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, sunt ad voluptate beatae voluptatum eaque mollitia, facilis optio recusandae aspernatur, perferendis hic eligendi fugit dicta quis architecto. Vel, corporis saepe!</p>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-              <button class="btn btn-danger" >
-                <i class="bi bi-x-lg"></i>
-              </button>
-              <button class="btn btn-success" >
-                <i class="bi bi-check2"></i>
-              </button>
-            </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center mt-4">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card" id="swipeCard">
+          <img src="assets/suitcase.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title"><!-- {{ title }} --> név</h5>
+            <p class="card-text"><!-- {{ workType }} --> típus</p>
+            <p class="card-text"><!-- {{ description }} --> leírás Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, sunt ad voluptate beatae voluptatum eaque mollitia, facilis optio recusandae aspernatur, perferendis hic eligendi fugit dicta quis architecto. Vel, corporis saepe!</p>
           </div>
-        </div>
-        <div class="col-2 d-flex align-items-center justify-content-start">
-          <button class="btn btn-success rounded-circle btn-lg">
-            <i class="bi bi-briefcase-fill"></i>
-          </button>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-danger">
+              <i class="bi bi-x-lg"></i>
+            </button>
+            <button class="btn btn-success">
+              <i class="bi bi-check2"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
