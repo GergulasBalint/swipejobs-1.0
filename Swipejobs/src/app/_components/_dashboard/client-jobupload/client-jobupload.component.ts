@@ -46,7 +46,7 @@ export class ClientJobuploadComponent implements OnInit {
       description: this.description
     };
     
-    this.http.post(`http://localhost:8080/clients/${this.clientId}/jobs`, jobData).subscribe((response) => {
+    this.http.post(`http://localhost:8080/jobs/${this.clientId}`, jobData).subscribe((response) => {
       console.log('Job created successfully', response);
       this.http.patch(`http://localhost:8080/clients/${this.clientId}/incrementJobCount`, { jobsCount: 1 }).subscribe((response) => {
         console.log('Job count updated successfully', response);
