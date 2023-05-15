@@ -19,5 +19,12 @@
     top: 13px;
     }
 
-
+    .form-outline {
+        position: relative;
+      }
+      
+      .form-outline input {
+        padding-right: 55px; /* Adjust the value as needed */
+      }
+      
       
