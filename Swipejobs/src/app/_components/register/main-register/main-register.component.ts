@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RegisterService } from 'src/app/_services/register.service';
 import { NgForm } from '@angular/forms';
-import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-main-register',
@@ -18,58 +16,47 @@ export class MainRegisterComponent {
   registrationFailed = false;
   registrationSuccess = false;
   showPassword = false;
-  constructor(
-    private registerService: RegisterService,
-    private http: HttpClient
-  ) {}
+  passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+
+  constructor(private http: HttpClient) {}
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
+
   onSubmit(form: NgForm) {
     const user = {
       first_name: this.firstName,
       last_name: this.lastName,
       email: this.email,
       password: this.password,
-      user_type: parseInt(this.workType)
+      user_type: parseInt(this.workType) 
     };
 
     if (form.valid) {
-      // Register the user and set registrationSuccess to true
-      this.registrationSuccess = true;
+      this.registrationFailed = false; // Reset registration failed status
+      // Send HTTP request to register the user
+      const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+      this.http.post('http://localhost:8080/users', JSON.stringify(user), { headers })
+        .toPromise()
+        .then(res => {
+          this.registrationSuccess = true; // Set registration success status
+          localStorage.setItem('user_type', this.workType);
+          console.log(res);
+          window.location.href = '/dashboard';
+        })
+        .catch(err => {
+          console.error(err);
+          this.registrationFailed = true; // Set registration failed status
+        });
     } else {
-      // Set registrationFailed to true
-      this.registrationFailed = true;
+      this.registrationFailed = true; // Set registration failed status
     }
-    
+  }
 
-  
-    const headers = new HttpHeaders({'Content-Type': 'application/json'});
-
-this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
-  .subscribe((response: any) => {
-    localStorage.setItem('user_type', this.workType);
-    localStorage.setItem('token', response.token);
-    localStorage.setItem('id', response.id);
-    localStorage.setItem('user_type', response.user_type);
-    console.log(response);
-    console.log(localStorage.getItem('id'));
-    
-    const body = {email: user.email, password: user.password};
-    this.http.post('http://localhost:8080/login', body).subscribe((response: any) => {
-      console.log(response);
-      console.log("Sikeres a login");
-      localStorage.setItem('token', response.token);
-      localStorage.setItem('id', response.id);
-      localStorage.setItem('user_type', response.user_type);
-      window.location.href="/dashboard"
-    }, (error) => {
-      console.log(error);
-      console.log("nem sikeres a login :(")
-
-    });
-  })
-
-}
+  validatePassword(): boolean {
+    return this.passwordPattern.test(this.password);
+  }
 }
