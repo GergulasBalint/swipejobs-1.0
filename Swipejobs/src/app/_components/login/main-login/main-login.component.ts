@@ -34,11 +34,11 @@ export class MainLoginComponent {
       localStorage.setItem('token', response.token);
       localStorage.setItem('id', response.id);
       localStorage.setItem('user_type', response.user_type);
-      this.router.navigate(['/dashboard']); // Store token in localStorage
+      this.router.navigate(['/dashboard']);
     }, (error) => {
       console.log(error);
       console.log("nem sikeres a login :(")
-      // handle login error here
+
     });
   }
   

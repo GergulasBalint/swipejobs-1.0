@@ -18,6 +18,8 @@ export class MainRegisterComponent {
   registrationFailed = false;
   registrationSuccess = false;
   showPassword = false;
+  passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
   constructor(
     private registerService: RegisterService,
     private http: HttpClient
@@ -25,6 +27,9 @@ export class MainRegisterComponent {
 
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+  validatePassword(): boolean {
+    return this.passwordPattern.test(this.password);
   }
   onSubmit(form: NgForm) {
     const user = {
@@ -36,10 +41,10 @@ export class MainRegisterComponent {
     };
 
     if (form.valid) {
-      // Register the user and set registrationSuccess to true
+     
       this.registrationSuccess = true;
     } else {
-      // Set registrationFailed to true
+
       this.registrationFailed = true;
     }
     
@@ -71,5 +76,6 @@ this.http.post('http://localhost:8080/users', JSON.stringify(user), {headers})
     });
   })
 
+  
 }
 }

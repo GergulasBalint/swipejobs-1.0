@@ -9,11 +9,10 @@ import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 export class LoggedInNavbarComponent {
   constructor() { }
   signOut(): void {
-    // Clear the authentication token from the local storage
+
     localStorage.removeItem('token');
     localStorage.removeItem('id');
     localStorage.removeItem('user_type');
-    // Redirect the user to the sign-in page
     window.location.href = '/login';
   }
 

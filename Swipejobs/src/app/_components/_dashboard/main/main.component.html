@@ -1,32 +1,32 @@
-<div class="bg-beige align-items-center justify-content-center bg-primary" style="height: 120vh;">
+<div class="bg-beige align-items-center justify-content-center bg-primary" style="min-height: 100vh;">
   <div class="container">
-    <h2 class="mb-4">Munkák lapozásához kattints a gombokra! A piros gombbal elutasítod, a zölddel jelentkezel a munkára!</h2>
+    <h2 class="mb-4 text-center">Munkák lapozásához kattints a gombokra! A piros gombbal elutasítod, a zölddel jelentkezel a munkára!</h2>
     <div class="row">
-      <div class="col-8 mx-auto">
-        <div class="row">
-          <div class="col-8">
-            <div class="card">
-              <img src="assets/suitcase.png" class="card-img-top">
-              <div class="card-body">
-                <h5 class="card-title">{{ jobs[currentIndex].title }}</h5>
-                <p class="card-text">Fízetési típus: {{jobs[currentIndex].work_type }}</p>
-                <p class="card-text">Összeg: {{ jobs[currentIndex].costHUF }} Ft</p>
-                <p class="card-text">Helyszín: {{ jobs[currentIndex].location }}</p>
-                <p class="card-text">Foglalkoztatás jellege: {{ jobs[currentIndex].foglalkoztatas_jellege }}</p>
-                <p class="card-text">{{ jobs[currentIndex].description }}</p>
-              </div>
-              <div class="card-footer d-flex justify-content-between">
-                <button class="btn btn-danger"(click)="nextJob()">
-                  <i class="bi bi-x-lg"></i>
-                </button>
-                <button class="btn btn-success"(click)="nextJob()">
-                  <i class="bi bi-check2"></i>
-                </button>
-              </div>
+      <div class="col-12 col-md-8 mx-auto">
+        <div class="card">
+          <img src="assets/suitcase.png" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{ jobs[currentIndex].title }}</h5>
+            <p class="card-text">Fízetési típus: {{ jobs[currentIndex].work_type }}</p>
+            <p class="card-text">Összeg: {{ jobs[currentIndex].costHUF }} Ft</p>
+            <p class="card-text">Helyszín: {{ jobs[currentIndex].location }}</p>
+            <p class="card-text">Foglalkoztatás jellege: {{ jobs[currentIndex].foglalkoztatas_jellege }}</p>
+            <p class="card-text">{{ jobs[currentIndex].description }}</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <div class="col-6">
+              <button class="btn btn-danger w-100" (click)="DenyJob()">
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+            <div class="col-6">
+              <button class="btn btn-success w-100" (click)="ApproveJob()">
+                <i class="bi bi-check2"></i>
+              </button>
             </div>
           </div>
         </div>
-        
+        <div *ngIf="jobs && jobs.length === 0" class="text-center mt-4">No jobs available.</div>
       </div>
     </div>
   </div>

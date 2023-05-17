@@ -8,9 +8,16 @@ import { Job } from '../_models/job';
 })
 export class JobServiceService {
   private baseUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient) { }
+
   getJobs(): Observable<Job[]> {
     const url = `${this.baseUrl}/jobs/alljobs`;
     return this.http.get<Job[]>(url);
+  }
+
+  applyForJob(matchedRequestModel: any): Observable<any> {
+    const url = `${this.baseUrl}/matches/apply`;
+    return this.http.post<any>(url, matchedRequestModel);
   }
 }

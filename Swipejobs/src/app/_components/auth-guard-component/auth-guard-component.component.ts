@@ -12,7 +12,6 @@ export class AuthGuardComponentComponent {
     constructor(private router: Router) { }
   
     ngOnInit() {
-      // Replace this with authentication logic
       var isLoggedIn = false;
       const token = localStorage.getItem('token');
       if (token!=null){
